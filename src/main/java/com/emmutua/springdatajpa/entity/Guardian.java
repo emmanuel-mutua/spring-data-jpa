@@ -1,9 +1,6 @@
 package com.emmutua.springdatajpa.entity;
 
-import jakarta.persistence.AttributeOverride;
-import jakarta.persistence.AttributeOverrides;
-import jakarta.persistence.Column;
-import jakarta.persistence.Embeddable;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,8 +28,6 @@ import lombok.NoArgsConstructor;
 )
 @Builder
 public class Guardian {
-    //Map attribute as in db
-
     private String name;
     private String email;
     private String mobile;
