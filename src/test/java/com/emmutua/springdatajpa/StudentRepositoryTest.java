@@ -49,4 +49,20 @@ public class StudentRepositoryTest {
         List<Student> studentList = studentRepository.findAll();
         System.out.println("Student List:" + studentList);
     }
+
+    @Test
+    public void getPrintStudentByEmailAddressNative(){
+        Student student = studentRepository.getStudentByEmailAddressNative("test23@gmail.com");
+        System.out.println("Student:: " + student);
+    }
+
+    @Test
+    public void getPrintStudentByEmailAddressNativeNamedParam(){
+        Student student = studentRepository.getStudentByEmailAddressNativeNamedParam("test23@gmail.com");
+    }
+
+    @Test
+    public void updateStudentNameByEmailId(){
+       studentRepository.updateStudentNameByEmailId("myname", "test23@gmail.com");
+    }
 }
