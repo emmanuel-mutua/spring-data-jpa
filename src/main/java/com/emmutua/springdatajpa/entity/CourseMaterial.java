@@ -1,10 +1,7 @@
 package com.emmutua.springdatajpa.entity;
 
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 @Entity
 @Data
@@ -19,6 +16,7 @@ import lombok.NoArgsConstructor;
                 )
         }
 )
+@ToString(exclude = "course")
 public class CourseMaterial {
     @Id
     @SequenceGenerator(
@@ -38,7 +36,11 @@ public class CourseMaterial {
     )
     private String url;
 
-    @OneToOne
+    @OneToOne(
+            //Pass permissions to child elem to allow save a course-material
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
     @JoinColumn(
             name = "course_id",
             referencedColumnName = "courseId"
