@@ -39,7 +39,8 @@ public class CourseMaterial {
     @OneToOne(
             //Pass permissions to child elem to allow save a course-material
             cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY
+            fetch = FetchType.LAZY,
+            optional = false //You cant save a course-material without a course
     )
     @JoinColumn(
             name = "course_id",

@@ -18,11 +18,11 @@ class CourseMaterialRepositoryTest {
     @Test
     public void saveCourseMaterial() {
         Course course = Course.builder()
-                .title("DSA")
-                .credits(6)
+                .title("JavaScript")
+                .credits("6")
                 .build();
         CourseMaterial courseMaterial = CourseMaterial.builder()
-                .url("courses/springdatajpa2")
+                .url("www.courses.com/into-to-js")
                 .course(course)
                 .build();
         courseMaterialRepository.save(courseMaterial);

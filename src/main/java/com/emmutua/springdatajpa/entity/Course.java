@@ -31,11 +31,20 @@ public class Course {
             name = "course_title"
     )
     private String title;
-    private Integer credits;
+    private String credits;
 
     //Bidirectional one to one mapping
     @OneToOne(
             mappedBy = "course"
     )
     private CourseMaterial courseMaterial;
+    @ManyToOne(
+            cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY
+    )
+    @JoinColumn(
+            name = "teacher_id",
+            referencedColumnName = "teacherId"
+    )
+    private Teacher teacher;
 }
